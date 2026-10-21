@@ -17,6 +17,18 @@ interface NetworkCardProps {
   index?: number;
 }
 
+function getButtonTextColor(colorHex: string): "text-[#0a0a0c]" | "text-white" {
+  if (!colorHex || colorHex.startsWith("var(")) return "text-white";
+  const hex = colorHex.replace("#", "");
+  if (hex.length !== 6 && hex.length !== 3) return "text-white";
+  const r = parseInt(hex.length === 3 ? hex[0] + hex[0] : hex.slice(0, 2), 16);
+  const g = parseInt(hex.length === 3 ? hex[1] + hex[1] : hex.slice(2, 4), 16);
+  const b = parseInt(hex.length === 3 ? hex[2] + hex[2] : hex.slice(4, 6), 16);
+  if (isNaN(r) || isNaN(g) || isNaN(b)) return "text-white";
+  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+  return yiq >= 155 ? "text-[#0a0a0c]" : "text-white";
+}
+
 export function NetworkCard({
   network,
   isFavorite,
@@ -39,8 +51,9 @@ export function NetworkCard({
   } = getNetworkUI(network);
 
   const isDarkAccent = color === "#18181b" || color === "#000000" || color === "black";
-  const buttonBg = isDarkAccent ? "var(--bg-canvas)" : color;
-  const buttonBorder = isDarkAccent ? "border border-[var(--border-subtle)] hover:border-[var(--color-primary)]/50" : "";
+  const buttonBg = isDarkAccent ? "#18181b" : color;
+  const buttonBorder = isDarkAccent ? "border border-[#262626] hover:border-[var(--color-primary)]/50" : "";
+  const buttonTextColor = isDarkAccent ? "text-white" : getButtonTextColor(buttonBg);
 
   const handleGmClick = async (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -88,7 +101,7 @@ export function NetworkCard({
           className={`flex size-8 cursor-pointer items-center justify-center rounded-full transition-all duration-150 ease-out active:scale-95 focus-visible:outline-none ${
             isFavorite
               ? "text-[var(--color-secondary)] bg-[var(--color-secondary)]/15 opacity-100"
-              : "opacity-60 hover:bg-white/5 hover:opacity-100 text-[var(--text-muted)] hover:text-white"
+              : "opacity-60 hover:bg-black/5 dark:hover:bg-white/5 hover:opacity-100 text-[var(--text-muted)] hover:text-[var(--text-primary)]"
           }`}
           aria-label={isFavorite ? "Remove from Favorites" : "Add to Favorites"}
           title={isFavorite ? "Remove from Favorites" : "Add to Favorites"}
@@ -108,8 +121,8 @@ export function NetworkCard({
             data-slot="badge"
             className={`inline-flex w-fit shrink-0 items-center justify-center whitespace-nowrap rounded-full border py-0.2 font-semibold transition-colors h-4.5 px-2 text-[10px] ${
               badge === "Hot"
-                ? "border-[#ff2dab]/30 bg-[#ff2dab]/10 text-[#ff2dab]"
-                : "border-[#d4ff3f]/30 bg-[#d4ff3f]/10 text-[#d4ff3f]"
+                ? "border-[var(--color-secondary)]/30 bg-[var(--color-secondary)]/10 text-[var(--color-secondary)] dark:border-[#ff2dab]/30 dark:bg-[#ff2dab]/10 dark:text-[#ff2dab]"
+                : "border-[#4d7c0f]/30 bg-[#4d7c0f]/10 text-[#3f6212] dark:border-[#d4ff3f]/30 dark:bg-[#d4ff3f]/10 dark:text-[#d4ff3f]"
             }`}
           >
             {badge}
@@ -183,7 +196,7 @@ export function NetworkCard({
                     e.stopPropagation();
                     hapticEngine.play("click");
                   }}
-                  className={`inline-flex items-center justify-center text-white hover:opacity-90 active:scale-[0.98] cursor-pointer group/bridge whitespace-nowrap no-underline gap-1 min-h-[26px] px-2.5 py-0.5 rounded-lg text-[10px] leading-tight font-medium shadow-sm transition-all ${buttonBorder}`}
+                  className={`inline-flex items-center justify-center ${buttonTextColor} hover:opacity-90 active:scale-[0.98] cursor-pointer group/bridge whitespace-nowrap no-underline gap-1 min-h-[26px] px-2.5 py-0.5 rounded-lg text-[10px] leading-tight font-medium shadow-sm transition-all ${buttonBorder}`}
                   style={{ backgroundColor: buttonBg }}
                 >
                   <span>Bridge</span>
@@ -201,7 +214,7 @@ export function NetworkCard({
               type="button"
               onClick={handleGmClick}
               disabled={isGmLoading}
-              className={`relative inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-xl py-2 text-xs font-bold shadow-sm transition-all duration-150 ease-out cursor-pointer active:scale-[0.98] w-1/2 flex-none px-2 text-white overflow-hidden group/btn hover:brightness-110 disabled:opacity-60 ${buttonBorder}`}
+              className={`relative inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-xl py-2 text-xs font-bold shadow-sm transition-all duration-150 ease-out cursor-pointer active:scale-[0.98] w-1/2 flex-none px-2 ${buttonTextColor} overflow-hidden group/btn hover:brightness-110 disabled:opacity-60 ${buttonBorder}`}
               style={{ backgroundColor: buttonBg }}
               aria-label={`Send GM on ${network.name}`}
             >
@@ -212,7 +225,7 @@ export function NetworkCard({
             <button
               type="button"
               onClick={handleDeployClick}
-              className={`relative inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-xl py-2 text-xs font-bold shadow-sm transition-all duration-150 ease-out cursor-pointer active:scale-[0.98] w-1/2 flex-none px-2 text-white overflow-hidden group/btn hover:brightness-110 ${buttonBorder}`}
+              className={`relative inline-flex min-h-[42px] items-center justify-center gap-1.5 rounded-xl py-2 text-xs font-bold shadow-sm transition-all duration-150 ease-out cursor-pointer active:scale-[0.98] w-1/2 flex-none px-2 ${buttonTextColor} overflow-hidden group/btn hover:brightness-110 ${buttonBorder}`}
               style={{ backgroundColor: buttonBg }}
               aria-label={`Deploy on ${network.name}`}
             >

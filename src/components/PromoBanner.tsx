@@ -18,7 +18,7 @@ export function PromoBanner() {
               </div>
               <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
                 <span>Each month, claim your share of the </span>
-                <span className="inline-flex items-center px-2 py-0.5 rounded-lg bg-[var(--bg-canvas)] text-[var(--color-primary)] font-bold border border-[var(--color-primary)]/30 font-mono text-xs mx-1">
+                <span className="inline-flex items-center px-2 py-0.5 rounded-lg bg-[var(--color-primary)]/15 dark:bg-[var(--bg-canvas)] text-[#122100] dark:text-[var(--color-primary)] font-bold border border-[var(--color-primary)]/40 font-mono text-xs mx-1">
                   $2,000 USDC
                 </span>
                 <span> reward pool for the GM and Deploy transactions you make through OnChainGM.</span>

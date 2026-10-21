@@ -88,7 +88,7 @@ export function NetworkFilterBar({
                 {tab.count !== undefined && (
                   <span
                     className={`rounded-full px-1.5 py-0.2 text-[10px] leading-none tabular-nums font-bold relative z-10 ${
-                      isActive ? "bg-black/20 text-[var(--color-on-primary)]" : "bg-white/10 text-[var(--text-secondary)]"
+                      isActive ? "bg-black/20 text-[var(--color-on-primary)]" : "bg-black/5 dark:bg-white/10 text-[var(--text-secondary)]"
                     }`}
                   >
                     {tab.count}
@@ -119,7 +119,7 @@ export function NetworkFilterBar({
                   hapticEngine.play("click");
                   onSearchChange("");
                 }}
-                className="text-[var(--text-muted)] hover:text-white p-0.5 rounded cursor-pointer"
+                className="text-[var(--text-muted)] hover:text-[var(--text-primary)] p-0.5 rounded cursor-pointer"
               >
                 <X className="h-3 w-3" />
               </button>
@@ -149,14 +149,14 @@ export function NetworkFilterBar({
                 className={`relative flex-1 py-2 text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 transition-colors ${
                   isActive
                     ? "bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm font-bold"
-                    : "text-[var(--text-secondary)] hover:text-white"
+                    : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                 }`}
               >
                 <span>{tab.label}</span>
                 {tab.count !== undefined && (
                   <span
                     className={`rounded-full px-1.5 py-0.2 text-[9px] font-bold ${
-                      isActive ? "bg-black/20 text-[var(--color-on-primary)]" : "bg-white/10 text-white"
+                      isActive ? "bg-black/20 text-[var(--color-on-primary)]" : "bg-black/5 dark:bg-white/10 text-[var(--text-secondary)]"
                     }`}
                   >
                     {tab.count}
@@ -186,7 +186,7 @@ export function NetworkFilterBar({
                   hapticEngine.play("click");
                   onSearchChange("");
                 }}
-                className="absolute right-2 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-white p-1 cursor-pointer"
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)] p-1 cursor-pointer"
               >
                 <X className="h-3 w-3" />
               </button>
@@ -199,7 +199,7 @@ export function NetworkFilterBar({
               onRefresh();
             }}
             aria-label="Refresh"
-            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-white hover:border-[var(--color-primary)] transition-colors cursor-pointer active:scale-95"
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:border-[var(--color-primary)] transition-colors cursor-pointer active:scale-95"
           >
             <RotateCw className="h-3.5 w-3.5" />
           </button>

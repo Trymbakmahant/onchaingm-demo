@@ -120,8 +120,8 @@ export function Header() {
           {/* Right Controls */}
           <div className="flex items-center space-x-2 sm:space-x-2.5">
             {/* Streak Counter Chip */}
-            <div className="hidden sm:flex items-center space-x-1.5 rounded-full border border-[#ff2dab]/30 bg-[#ff2dab]/10 px-3 py-1 text-xs font-semibold text-[#ff2dab]">
-              <Flame className="h-3.5 w-3.5 fill-[#ff2dab] text-[#ff2dab] animate-pulse" />
+            <div className="hidden sm:flex items-center space-x-1.5 rounded-full border border-[var(--color-secondary)]/30 bg-[var(--color-secondary)]/10 px-3 py-1 text-xs font-semibold text-[var(--color-secondary)]">
+              <Flame className="h-3.5 w-3.5 fill-[var(--color-secondary)] text-[var(--color-secondary)] animate-pulse" />
               <span>{streak} Day Streak</span>
             </div>
 
@@ -181,7 +181,7 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => hapticEngine.play("click")}
-                className="flex items-center gap-1 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-2.5 py-1.5 text-xs font-semibold text-[var(--text-secondary)] hover:text-white transition cursor-pointer"
+                className="flex items-center gap-1 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-2.5 py-1.5 text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition cursor-pointer"
                 aria-label="Language: English"
                 title="Language: English"
               >
@@ -199,7 +199,7 @@ export function Header() {
                     hapticEngine.play("click");
                     setIsUserMenuOpen(!isUserMenuOpen);
                   }}
-                  className="flex items-center space-x-2 rounded-xl border border-[var(--color-primary)]/40 bg-[var(--color-primary)]/10 px-3 py-1.5 text-xs font-semibold text-[var(--color-primary)] hover:border-[var(--color-primary)] transition cursor-pointer"
+                  className="flex items-center space-x-2 rounded-xl border border-[var(--color-primary)]/40 bg-[var(--color-primary)]/15 px-3 py-1.5 text-xs font-bold text-[var(--color-on-primary)] dark:text-[var(--color-primary)] hover:border-[var(--color-primary)] transition cursor-pointer"
                 >
                   <div className="h-2 w-2 rounded-full bg-[var(--status-success)] animate-pulse" />
                   <span>{wallet.address}</span>
@@ -274,7 +274,7 @@ export function Header() {
                 hapticEngine.play("click");
                 setMobileMenuOpen(!mobileMenuOpen);
               }}
-              className="lg:hidden rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-2 text-neutral-300 hover:text-white"
+              className="lg:hidden rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
               aria-label="Menu"
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -299,7 +299,7 @@ export function Header() {
                   className={`flex items-center space-x-2.5 rounded-xl px-3 py-2 text-sm font-medium transition ${
                     isActive
                       ? "bg-[var(--color-primary)] text-[var(--color-on-primary)] font-bold shadow-sm"
-                      : "text-[var(--text-secondary)] hover:bg-white/5 hover:text-white"
+                      : "text-[var(--text-secondary)] hover:bg-[var(--bg-surface-hover)] hover:text-[var(--text-primary)]"
                   }`}
                 >
                   <Icon className="h-4 w-4" />

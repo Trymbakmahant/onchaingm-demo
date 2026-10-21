@@ -245,7 +245,7 @@ export function HomeSidebar({ onOpenWalletModal, onGmNetwork }: HomeSidebarProps
           </div>
           <button
             type="button"
-            className="text-[var(--text-muted)] hover:text-white transition p-1"
+            className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition p-1"
             title="GMs can be sent once every 24 hours per network"
           >
             <HelpCircle className="h-3.5 w-3.5" />
@@ -290,13 +290,13 @@ export function HomeSidebar({ onOpenWalletModal, onGmNetwork }: HomeSidebarProps
                   <span className="text-xs font-semibold text-[var(--text-primary)] truncate">{chain.name}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-mono text-[var(--color-primary)] font-bold">
+                  <span className="text-[11px] font-mono text-[#15803d] dark:text-[var(--color-primary)] font-bold">
                     {formatTime(secondsRemaining)}
                   </span>
                   <button
                     type="button"
                     onClick={() => onGmNetwork && onGmNetwork(chain.id)}
-                    className="px-2.5 py-0.5 text-[10px] font-bold rounded-lg bg-[var(--color-primary)]/15 text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] transition"
+                    className="px-2.5 py-0.5 text-[10px] font-bold rounded-lg bg-[var(--color-primary)]/20 text-[#122100] dark:bg-[var(--color-primary)]/15 dark:text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] transition"
                   >
                     GM
                   </button>

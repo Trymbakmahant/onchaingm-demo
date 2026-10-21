@@ -133,7 +133,7 @@ export function AppleSegmentedFilter({
             {searchQuery && (
               <button
                 onClick={() => onSearchChange("")}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-white transition p-0.5"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition p-0.5"
               >
                 <X className="h-3.5 w-3.5" />
               </button>
