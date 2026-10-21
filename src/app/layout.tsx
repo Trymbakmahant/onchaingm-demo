@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Web3Provider } from "@/context/Web3Context";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+
+const neoAtomed = localFont({
+  src: "../../public/fonts/NeoAtomedRegular.woff",
+  variable: "--font-neo-atomed",
+  display: "swap",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,7 +65,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark antialiased`} suppressHydrationWarning>
+    <html lang="en" className={`${neoAtomed.variable} ${geistSans.variable} ${geistMono.variable} dark antialiased`} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

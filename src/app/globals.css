@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Neo Atomed';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/NeoAtomedRegular.woff') format('woff'),
+       url('https://fonts.cdnfonts.com/s/127056/NeoAtomedRegular-4nM8l.woff') format('woff');
+  font-display: swap;
+}
+
 :root,
 html.dark {
   /* 1. Backgrounds & Surfaces (Neon Obsidian Dark) */
@@ -120,15 +129,23 @@ html.light {
   --color-status-warning: var(--status-warning);
   --color-status-error: var(--status-error);
 
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-neo-atomed), 'Neo Atomed', var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-neo-atomed), 'Neo Atomed', sans-serif;
+  --font-atomed: var(--font-neo-atomed), 'Neo Atomed', sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
 body {
   background-color: var(--bg-canvas);
   color: var(--text-primary);
-  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-neo-atomed), 'Neo Atomed', var(--font-sans), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
+  letter-spacing: 0.015em;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display, .font-atomed {
+  font-family: var(--font-neo-atomed), 'Neo Atomed', var(--font-sans), sans-serif;
+  letter-spacing: 0.025em;
 }
 
 /* Custom Scrollbar for Neon Obsidian Aesthetic */
