@@ -154,9 +154,9 @@ export function Header() {
             <div className="flex items-center">
               <button
                 type="button"
-                onClick={() => {
+                onClick={(e) => {
                   hapticEngine.play("toggle");
-                  toggleTheme();
+                  toggleTheme(e);
                 }}
                 className="flex items-center gap-1.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-2.5 py-1.5 text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--color-primary)]/50 transition cursor-pointer select-none"
                 aria-label={`Theme: ${theme === "dark" ? "Dark" : "Light"}`}
@@ -313,9 +313,9 @@ export function Header() {
               <span className="text-xs text-[var(--text-secondary)] font-medium">Appearance</span>
               <button
                 type="button"
-                onClick={() => {
+                onClick={(e) => {
                   hapticEngine.play("toggle");
-                  toggleTheme();
+                  toggleTheme(e);
                 }}
                 className="flex items-center gap-1.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-3 py-1.5 text-xs font-semibold text-[var(--text-primary)] hover:border-[var(--color-primary)] transition cursor-pointer"
               >

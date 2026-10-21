@@ -291,3 +291,18 @@ html.light ::-webkit-scrollbar-thumb:hover {
 .reveal-stagger-10 { animation-delay: 0.20s; }
 .reveal-stagger-11 { animation-delay: 0.22s; }
 .reveal-stagger-12 { animation-delay: 0.24s; }
+
+/* Circular View Transition Wave for Theme Toggle */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 99999;
+}
