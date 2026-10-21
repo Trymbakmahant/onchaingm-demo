@@ -219,15 +219,15 @@ export default function B20Page() {
             <ApplePhysicsCard
               tiltIntensity={1.5}
               glareOpacity={0.03}
-              className="rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#141414]/90 backdrop-blur-2xl p-3.5 sm:p-4 lg:p-5 shadow-2xl shadow-black/80"
+              className="rounded-2xl sm:rounded-3xl border border-[var(--border-subtle)] bg-[var(--bg-surface)]/90 backdrop-blur-2xl p-3.5 sm:p-4 lg:p-5 shadow-2xl"
             >
               {/* Form Title & Network Indicator */}
-              <div className="flex items-center justify-between pb-2.5 border-b border-white/[0.06]">
+              <div className="flex items-center justify-between pb-2.5 border-b border-[var(--border-subtle)]">
                 <div>
-                  <h2 className="text-sm sm:text-base font-bold text-white">
+                  <h2 className="text-sm sm:text-base font-bold text-[var(--text-primary)]">
                     Token Specification
                   </h2>
-                  <p className="text-[10px] sm:text-[11px] text-neutral-400">
+                  <p className="text-[10px] sm:text-[11px] text-[var(--text-secondary)]">
                     Define on-chain parameters for your asset
                   </p>
                 </div>
@@ -245,7 +245,7 @@ export default function B20Page() {
               {/* Mobile Quick Preview Ribbon */}
               <div
                 onClick={() => setMobileTab("preview")}
-                className="lg:hidden mt-2.5 p-2 rounded-xl border border-white/[0.08] bg-[#0b0b0b] flex items-center justify-between cursor-pointer hover:border-[#d4ff3f]/40 transition"
+                className="lg:hidden mt-2.5 p-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-canvas)] flex items-center justify-between cursor-pointer hover:border-[var(--color-primary)]/40 transition"
               >
                 <div className="flex items-center gap-2">
                   <div
@@ -254,13 +254,13 @@ export default function B20Page() {
                     {tokenSymbol ? tokenSymbol.slice(0, 3) : "B20"}
                   </div>
                   <div>
-                    <span className="font-bold text-xs text-white">
+                    <span className="font-bold text-xs text-[var(--text-primary)]">
                       {tokenName || "Token Name"}{" "}
                       <span className={activeTheme.text}>(${tokenSymbol || "SYM"})</span>
                     </span>
                   </div>
                 </div>
-                <div className="flex items-center gap-1 text-[11px] font-bold text-[#d4ff3f]">
+                <div className="flex items-center gap-1 text-[11px] font-bold text-[var(--color-primary)]">
                   <span>View Card</span>
                   <ArrowRight className="h-3 w-3" />
                 </div>
@@ -271,7 +271,7 @@ export default function B20Page() {
                 {/* Row 1: Token Name & Ticker Symbol */}
                 <div className="grid grid-cols-12 gap-2.5">
                   <div className="col-span-7">
-                    <label className="block text-[11px] font-semibold text-neutral-300 mb-1">
+                    <label className="block text-[11px] font-semibold text-[var(--text-primary)] mb-1">
                       Token Name <span className="text-[#ff2dab]">*</span>
                     </label>
                     <input
@@ -280,16 +280,16 @@ export default function B20Page() {
                       value={tokenName}
                       onChange={(e) => setTokenName(e.target.value)}
                       placeholder="e.g. OnChainGM Token"
-                      className="w-full rounded-xl border border-white/[0.08] bg-[#0b0b0b] px-3 py-1.5 sm:py-2 text-xs sm:text-sm text-white placeholder-neutral-600 focus:border-[#d4ff3f] focus:outline-none transition"
+                      className="w-full rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-canvas)] px-3 py-1.5 sm:py-2 text-xs sm:text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:border-[var(--color-primary)] focus:outline-none transition"
                     />
                   </div>
 
                   <div className="col-span-5">
-                    <label className="block text-[11px] font-semibold text-neutral-300 mb-1">
+                    <label className="block text-[11px] font-semibold text-[var(--text-primary)] mb-1">
                       Symbol <span className="text-[#ff2dab]">*</span>
                     </label>
                     <div className="relative">
-                      <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-xs font-bold text-neutral-500 font-mono">
+                      <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-xs font-bold text-[var(--text-muted)] font-mono">
                         $
                       </span>
                       <input
@@ -298,7 +298,7 @@ export default function B20Page() {
                         value={tokenSymbol}
                         onChange={(e) => setTokenSymbol(e.target.value.toUpperCase())}
                         placeholder="OCGM"
-                        className="w-full rounded-xl border border-white/[0.08] bg-[#0b0b0b] pl-6 pr-2.5 py-1.5 sm:py-2 text-xs sm:text-sm font-mono font-bold text-white placeholder-neutral-600 focus:border-[#d4ff3f] focus:outline-none uppercase transition"
+                        className="w-full rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-canvas)] pl-6 pr-2.5 py-1.5 sm:py-2 text-xs sm:text-sm font-mono font-bold text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:border-[var(--color-primary)] focus:outline-none uppercase transition"
                       />
                     </div>
                   </div>
@@ -308,15 +308,15 @@ export default function B20Page() {
                 <div className="grid grid-cols-12 gap-2.5">
                   <div className="col-span-8">
                     <div className="flex items-center justify-between mb-1">
-                      <label className="text-[11px] font-semibold text-neutral-300">
+                      <label className="text-[11px] font-semibold text-[var(--text-primary)]">
                         Supply Cap
                       </label>
-                      <label className="flex items-center gap-1 cursor-pointer text-[10px] text-neutral-400 hover:text-white">
+                      <label className="flex items-center gap-1 cursor-pointer text-[10px] text-[var(--text-secondary)] hover:text-[var(--text-primary)]">
                         <input
                           type="checkbox"
                           checked={isUnlimited}
                           onChange={(e) => setIsUnlimited(e.target.checked)}
-                          className="rounded border-white/20 bg-[#0b0b0b] text-[#d4ff3f] focus:ring-0 cursor-pointer h-3 w-3"
+                          className="rounded border-[var(--border-subtle)] bg-[var(--bg-canvas)] text-[var(--color-primary)] focus:ring-0 cursor-pointer h-3 w-3"
                         />
                         <span>Unlimited</span>
                       </label>
@@ -329,14 +329,14 @@ export default function B20Page() {
                         value={isUnlimited ? "" : supplyCap}
                         onChange={(e) => setSupplyCap(e.target.value)}
                         placeholder={isUnlimited ? "Unlimited Supply" : "1,000,000,000"}
-                        className="w-full rounded-xl border border-white/[0.08] bg-[#0b0b0b] px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-mono text-white placeholder-neutral-600 focus:border-[#d4ff3f] focus:outline-none transition disabled:opacity-40 disabled:cursor-not-allowed"
+                        className="w-full rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-canvas)] px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-mono text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:border-[var(--color-primary)] focus:outline-none transition disabled:opacity-40 disabled:cursor-not-allowed"
                       />
                     </div>
 
                     {/* Compact Presets */}
                     {!isUnlimited && (
                       <div className="flex items-center gap-1 mt-1.5">
-                        <span className="text-[9px] text-neutral-500 mr-0.5">Cap:</span>
+                        <span className="text-[9px] text-[var(--text-muted)] mr-0.5">Cap:</span>
                         {SUPPLY_PRESETS.map((p) => (
                           <button
                             key={p.value}
@@ -347,8 +347,8 @@ export default function B20Page() {
                             }}
                             className={`px-1.5 py-0.2 rounded text-[10px] font-mono transition cursor-pointer ${
                               supplyCap === p.value
-                                ? "bg-[#d4ff3f]/15 border border-[#d4ff3f]/40 text-[#d4ff3f] font-bold"
-                                : "bg-white/[0.04] text-neutral-400 hover:text-white"
+                                ? "bg-[var(--color-primary)]/15 border border-[var(--color-primary)]/40 text-[var(--color-primary)] font-bold"
+                                : "bg-[var(--bg-surface-hover)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                             }`}
                           >
                             {p.label}
@@ -360,10 +360,10 @@ export default function B20Page() {
 
                   <div className="col-span-4">
                     <div className="flex justify-between items-center mb-1">
-                      <label className="text-[11px] font-semibold text-neutral-300">
+                      <label className="text-[11px] font-semibold text-[var(--text-primary)]">
                         Decimals
                       </label>
-                      <span className="text-[9px] text-[#d4ff3f] font-mono">ERC-20</span>
+                      <span className="text-[9px] text-[var(--color-primary)] font-mono">ERC-20</span>
                     </div>
                     <input
                       type="number"
@@ -371,14 +371,14 @@ export default function B20Page() {
                       onChange={(e) => setDecimals(e.target.value)}
                       min={0}
                       max={18}
-                      className="w-full rounded-xl border border-white/[0.08] bg-[#0b0b0b] px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-mono text-white placeholder-neutral-600 focus:border-[#d4ff3f] focus:outline-none transition"
+                      className="w-full rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-canvas)] px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-mono text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:border-[var(--color-primary)] focus:outline-none transition"
                     />
                   </div>
                 </div>
 
                 {/* Row 3: Card Theme Selector (Slim Row) */}
                 <div>
-                  <label className="block text-[11px] font-semibold text-neutral-300 mb-1">
+                  <label className="block text-[11px] font-semibold text-[var(--text-primary)] mb-1">
                     Card Hologram Theme
                   </label>
                   <div className="grid grid-cols-4 gap-1.5">
@@ -396,8 +396,8 @@ export default function B20Page() {
                           }}
                           className={`flex items-center justify-center gap-1.5 py-1 px-1.5 rounded-lg border transition cursor-pointer select-none text-[10px] ${
                             isSelected
-                              ? `${t.border} bg-white/[0.08] shadow-sm font-bold text-white`
-                              : "border-white/[0.06] bg-[#0b0b0b] text-neutral-400 hover:bg-white/[0.04]"
+                              ? `${t.border} bg-[var(--bg-surface-hover)] shadow-sm font-bold text-[var(--text-primary)]`
+                              : "border-[var(--border-subtle)] bg-[var(--bg-canvas)] text-[var(--text-secondary)] hover:bg-[var(--bg-surface-hover)]"
                           }`}
                         >
                           <span
@@ -412,26 +412,26 @@ export default function B20Page() {
                 </div>
 
                 {/* Row 4: Compact Specs & Fee Strip */}
-                <div className="rounded-xl border border-white/[0.08] bg-[#0b0b0b]/80 p-2.5 text-[11px] space-y-1 mt-1">
-                  <div className="flex justify-between items-center text-neutral-400">
+                <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-canvas)]/80 p-2.5 text-[11px] space-y-1 mt-1">
+                  <div className="flex justify-between items-center text-[var(--text-secondary)]">
                     <span className="flex items-center gap-1 text-[11px]">
-                      <Zap className="h-3 w-3 text-[#d4ff3f]" />
+                      <Zap className="h-3 w-3 text-[var(--color-primary)]" />
                       <span>Launcher Fee:</span>
                     </span>
-                    <span className="font-mono font-bold text-[#d4ff3f] flex items-center gap-1">
+                    <span className="font-mono font-bold text-[var(--color-primary)] flex items-center gap-1">
                       <span>0.000065 ETH (~$0.16)</span>
-                      <span className="rounded bg-emerald-500/15 text-emerald-400 text-[9px] px-1">
+                      <span className="rounded bg-emerald-500/15 text-emerald-500 text-[9px] px-1">
                         -99% vs L1
                       </span>
                     </span>
                   </div>
 
-                  <div className="flex justify-between items-center text-neutral-400">
+                  <div className="flex justify-between items-center text-[var(--text-secondary)]">
                     <span className="flex items-center gap-1 text-[11px]">
-                      <Lock className="h-3 w-3 text-neutral-500" />
+                      <Lock className="h-3 w-3 text-[var(--text-muted)]" />
                       <span>Mint Keys:</span>
                     </span>
-                    <span className="font-mono text-neutral-300 truncate max-w-[170px] sm:max-w-none">
+                    <span className="font-mono text-[var(--text-primary)] truncate max-w-[170px] sm:max-w-none">
                       {wallet.isConnected ? wallet.address : "Connected Wallet (100% Non-Custodial)"}
                     </span>
                   </div>
@@ -445,11 +445,11 @@ export default function B20Page() {
                     transition={{ type: "spring", stiffness: 450, damping: 25 }}
                     onClick={handleDeploy}
                     disabled={isDeploying || !tokenName.trim() || !tokenSymbol.trim()}
-                    className="w-full rounded-xl bg-gradient-to-r from-[#d4ff3f] via-[#d4ff3f] to-[#b8f522] text-black font-extrabold py-2.5 sm:py-3 px-4 text-xs sm:text-sm shadow-xl shadow-[#d4ff3f]/25 hover:brightness-110 active:scale-[0.99] transition disabled:opacity-50 flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
+                    className="w-full rounded-xl bg-[var(--color-primary)] text-[var(--color-on-primary)] font-extrabold py-2.5 sm:py-3 px-4 text-xs sm:text-sm shadow-xl shadow-[var(--color-primary)]/20 hover:brightness-110 active:scale-[0.99] transition disabled:opacity-50 flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
                   >
                     {isDeploying ? (
                       <>
-                        <div className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-black border-t-transparent" />
+                        <div className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-[var(--color-on-primary)] border-t-transparent" />
                         <span>{deployStep}</span>
                       </>
                     ) : (
@@ -459,7 +459,7 @@ export default function B20Page() {
                             ? `Launch $${tokenSymbol || "B20"} on Base`
                             : "Connect Wallet to Launch"}
                         </span>
-                        <ArrowRight className="h-4 w-4 text-black" />
+                        <ArrowRight className="h-4 w-4 text-[var(--color-on-primary)]" />
                       </>
                     )}
                   </motion.button>
@@ -478,7 +478,7 @@ export default function B20Page() {
               tiltIntensity={5}
               glareOpacity={0.12}
               depth={16}
-              className="w-full rounded-2xl sm:rounded-3xl border border-white/[0.1] bg-[#141414]/90 p-3.5 sm:p-4 lg:p-5 shadow-2xl relative overflow-hidden backdrop-blur-2xl"
+              className="w-full rounded-2xl sm:rounded-3xl border border-[var(--border-subtle)] bg-[var(--bg-surface)]/90 p-3.5 sm:p-4 lg:p-5 shadow-2xl relative overflow-hidden backdrop-blur-2xl"
             >
               {/* Header Badges */}
               <div className="flex items-center justify-between mb-2">
@@ -488,15 +488,15 @@ export default function B20Page() {
                     alt="Base"
                     className="h-3.5 w-3.5 rounded-full object-cover"
                   />
-                  <span className="text-xs font-bold text-white">Base Asset Preview</span>
+                  <span className="text-xs font-bold text-[var(--text-primary)]">Base Asset Preview</span>
                 </div>
-                <span className="rounded-full bg-white/[0.06] border border-white/[0.12] px-2 py-0.2 text-[9px] font-mono font-bold text-neutral-300">
+                <span className="rounded-full bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] px-2 py-0.2 text-[9px] font-mono font-bold text-[var(--text-secondary)]">
                   ERC-20 • B20
                 </span>
               </div>
 
               {/* Physical Coin Medallion Container (Compact Height) */}
-              <div className="relative h-40 sm:h-44 lg:h-48 w-full rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#0e0e0e] to-[#070707] border border-white/[0.08] p-2.5 sm:p-3 flex flex-col justify-between items-center text-center shadow-inner overflow-hidden">
+              <div className="relative h-40 sm:h-44 lg:h-48 w-full rounded-xl sm:rounded-2xl bg-gradient-to-b from-[var(--bg-surface)] to-[var(--bg-canvas)] border border-[var(--border-subtle)] p-2.5 sm:p-3 flex flex-col justify-between items-center text-center shadow-inner overflow-hidden">
                 {/* Ambient glow behind coin */}
                 <div
                   className="absolute inset-0 blur-2xl opacity-35 pointer-events-none transition-colors duration-500"
@@ -504,10 +504,10 @@ export default function B20Page() {
                 />
 
                 {/* Top Metas */}
-                <div className="w-full flex justify-between items-center z-10 text-[9px] font-mono text-neutral-400">
+                <div className="w-full flex justify-between items-center z-10 text-[9px] font-mono text-[var(--text-muted)]">
                   <span>CHAIN ID: 8453</span>
-                  <span className="text-emerald-400 font-semibold flex items-center gap-1">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-emerald-500 font-semibold flex items-center gap-1">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     LIVE PRECOMPILE
                   </span>
                 </div>
@@ -533,7 +533,7 @@ export default function B20Page() {
                     </span>
                   </motion.div>
 
-                  <h3 className="text-xs sm:text-sm font-extrabold text-white tracking-wide truncate max-w-[200px] leading-tight">
+                  <h3 className="text-xs sm:text-sm font-extrabold text-[var(--text-primary)] tracking-wide truncate max-w-[200px] leading-tight">
                     {tokenName || "Token Name"}
                   </h3>
                   <div className={`text-[10px] sm:text-[11px] font-mono font-bold ${activeTheme.text}`}>
@@ -542,7 +542,7 @@ export default function B20Page() {
                 </div>
 
                 {/* Bottom Supply & Decimals Strip */}
-                <div className="w-full pt-1.5 border-t border-white/[0.08] z-10 text-[9px] sm:text-[10px] text-neutral-400 flex justify-between font-mono">
+                <div className="w-full pt-1.5 border-t border-[var(--border-subtle)] z-10 text-[9px] sm:text-[10px] text-[var(--text-muted)] flex justify-between font-mono">
                   <span>
                     Cap: {isUnlimited ? "Unlimited" : Number(supplyCap || 0).toLocaleString("en-US")}
                   </span>
@@ -551,83 +551,83 @@ export default function B20Page() {
               </div>
 
               {/* Ready for DEX Liquidity banner */}
-              <div className="mt-2 p-1.5 sm:p-2 rounded-xl border border-white/[0.06] bg-white/[0.02] flex items-center justify-between text-[11px]">
-                <span className="text-neutral-400 flex items-center gap-1">
+              <div className="mt-2 p-1.5 sm:p-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-canvas)] flex items-center justify-between text-[11px]">
+                <span className="text-[var(--text-secondary)] flex items-center gap-1">
                   <Globe2 className="h-3 w-3 text-[#ff2dab]" />
                   <span>DEX Readiness:</span>
                 </span>
-                <span className="font-semibold text-white">Uniswap &amp; Aerodrome</span>
+                <span className="font-semibold text-[var(--text-primary)]">Uniswap &amp; Aerodrome</span>
               </div>
 
               {/* Meta Details */}
-              <div className="mt-1.5 pt-1.5 border-t border-white/[0.08] space-y-0.5 text-[10px] sm:text-[11px] text-neutral-400">
+              <div className="mt-1.5 pt-1.5 border-t border-[var(--border-subtle)] space-y-0.5 text-[10px] sm:text-[11px] text-[var(--text-secondary)]">
                 <div className="flex justify-between">
                   <span>Minting Controller:</span>
-                  <span className="text-white font-mono">Owner Wallet (You)</span>
+                  <span className="text-[var(--text-primary)] font-mono">Owner Wallet (You)</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Precompile:</span>
-                  <span className="text-neutral-300 font-mono">0x000...B20</span>
+                  <span className="text-[var(--text-muted)] font-mono">0x000...B20</span>
                 </div>
               </div>
 
               {/* Mobile Back-to-form action */}
-              <div className="lg:hidden mt-2.5 pt-2 border-t border-white/[0.08]">
+              <div className="lg:hidden mt-2.5 pt-2 border-t border-[var(--border-subtle)]">
                 <button
                   onClick={() => setMobileTab("form")}
-                  className="w-full py-1.5 rounded-xl bg-white/[0.06] border border-white/[0.1] text-xs font-bold text-white flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full py-1.5 rounded-xl bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] text-xs font-bold text-[var(--text-primary)] flex items-center justify-center gap-1.5 cursor-pointer"
                 >
-                  <Sliders className="h-3 w-3 text-[#d4ff3f]" />
+                  <Sliders className="h-3 w-3 text-[var(--color-primary)]" />
                   <span>Edit Token Parameters</span>
                 </button>
               </div>
             </ApplePhysicsCard>
 
-            <div className="mt-1.5 text-center text-[10px] text-neutral-500 max-w-xs">
+            <div className="mt-1.5 text-center text-[10px] text-[var(--text-muted)] max-w-xs">
               100% of minting keys are transferred directly to your wallet upon deployment.
             </div>
           </div>
         </div>
 
         {/* 4-Card Feature Strip */}
-        <div className="mt-3 sm:mt-4 pt-2 sm:pt-2.5 border-t border-white/[0.06]">
+        <div className="mt-3 sm:mt-4 pt-2 sm:pt-2.5 border-t border-[var(--border-subtle)]">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5">
-            <div className="rounded-xl border border-white/[0.06] bg-[#141414]/70 p-2 sm:p-2.5">
-              <div className="flex items-center gap-1.5 text-xs font-bold text-white mb-0.5">
-                <Zap className="h-3 w-3 text-[#d4ff3f]" />
+            <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-2 sm:p-2.5">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--text-primary)] mb-0.5">
+                <Zap className="h-3 w-3 text-[var(--color-primary)]" />
                 <span>Sub-Penny Gas</span>
               </div>
-              <p className="text-[10px] text-neutral-400">
+              <p className="text-[10px] text-[var(--text-secondary)]">
                 0.000065 ETH precompile cost.
               </p>
             </div>
 
-            <div className="rounded-xl border border-white/[0.06] bg-[#141414]/70 p-2 sm:p-2.5">
-              <div className="flex items-center gap-1.5 text-xs font-bold text-white mb-0.5">
+            <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-2 sm:p-2.5">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--text-primary)] mb-0.5">
                 <Layers className="h-3 w-3 text-[#ff2dab]" />
                 <span>100% ERC-20</span>
               </div>
-              <p className="text-[10px] text-neutral-400">
+              <p className="text-[10px] text-[var(--text-secondary)]">
                 Uniswap, Aerodrome, MetaMask.
               </p>
             </div>
 
-            <div className="rounded-xl border border-white/[0.06] bg-[#141414]/70 p-2 sm:p-2.5">
-              <div className="flex items-center gap-1.5 text-xs font-bold text-white mb-0.5">
-                <Lock className="h-3 w-3 text-blue-400" />
+            <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-2 sm:p-2.5">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--text-primary)] mb-0.5">
+                <Lock className="h-3 w-3 text-blue-500" />
                 <span>Full Ownership</span>
               </div>
-              <p className="text-[10px] text-neutral-400">
+              <p className="text-[10px] text-[var(--text-secondary)]">
                 100% minting permissions to you.
               </p>
             </div>
 
-            <div className="rounded-xl border border-white/[0.06] bg-[#141414]/70 p-2 sm:p-2.5">
-              <div className="flex items-center gap-1.5 text-xs font-bold text-white mb-0.5">
-                <ShieldCheck className="h-3 w-3 text-emerald-400" />
+            <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-2 sm:p-2.5">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--text-primary)] mb-0.5">
+                <ShieldCheck className="h-3 w-3 text-emerald-500" />
                 <span>BaseScan Verified</span>
               </div>
-              <p className="text-[10px] text-neutral-400">
+              <p className="text-[10px] text-[var(--text-secondary)]">
                 Auto-recognized bytecode on Base.
               </p>
             </div>
@@ -651,43 +651,43 @@ export default function B20Page() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 15 }}
               transition={{ type: "spring", stiffness: 450, damping: 26 }}
-              className="relative w-full max-w-sm sm:max-w-md rounded-3xl border border-[#d4ff3f]/30 bg-[#141414] p-5 sm:p-6 text-center shadow-2xl shadow-black/90 z-10"
+              className="relative w-full max-w-sm sm:max-w-md rounded-3xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-5 sm:p-6 text-center shadow-2xl z-10"
             >
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#d4ff3f]/15 border border-[#d4ff3f]/30 text-[#d4ff3f] mb-3">
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--color-primary)]/15 border border-[var(--color-primary)]/30 text-[var(--color-primary)] mb-3">
                 <Coins className="h-7 w-7" />
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-extrabold text-white">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)]">
                 B20 Asset Deployed! 🎉
               </h3>
-              <p className="mt-1 text-xs text-neutral-400">
+              <p className="mt-1 text-xs text-[var(--text-secondary)]">
                 Your token{" "}
-                <span className="text-[#d4ff3f] font-bold">
+                <span className="text-[var(--color-primary)] font-bold">
                   {deployedToken.name} (${deployedToken.symbol})
                 </span>{" "}
                 is now live on Base mainnet.
               </p>
 
-              <div className="mt-4 space-y-2 rounded-2xl border border-white/[0.08] bg-[#0b0b0b] p-3 text-xs text-left">
+              <div className="mt-4 space-y-2 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-canvas)] p-3 text-xs text-left">
                 <div className="flex justify-between items-center">
-                  <span className="text-neutral-400">Token Contract:</span>
+                  <span className="text-[var(--text-secondary)]">Token Contract:</span>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={copyAddress}
-                    className="flex items-center gap-1 text-[#d4ff3f] hover:underline font-mono font-bold cursor-pointer"
+                    className="flex items-center gap-1 text-[var(--color-primary)] hover:underline font-mono font-bold cursor-pointer"
                   >
                     <span>{deployedToken.address}</span>
                     {copied ? (
-                      <Check className="h-3.5 w-3.5 text-emerald-400" />
+                      <Check className="h-3.5 w-3.5 text-emerald-500" />
                     ) : (
                       <Copy className="h-3.5 w-3.5" />
                     )}
                   </motion.button>
                 </div>
-                <div className="flex justify-between text-neutral-400">
+                <div className="flex justify-between text-[var(--text-secondary)]">
                   <span>Transaction:</span>
-                  <span className="text-white font-mono">{deployedToken.txHash}</span>
+                  <span className="text-[var(--text-primary)] font-mono">{deployedToken.txHash}</span>
                 </div>
               </div>
 
@@ -714,7 +714,7 @@ export default function B20Page() {
                     hapticEngine.play("click");
                     setDeployedToken(null);
                   }}
-                  className="flex-1 rounded-xl bg-white/[0.06] border border-white/[0.1] py-2 text-xs font-bold text-white hover:bg-white/[0.1] transition cursor-pointer"
+                  className="flex-1 rounded-xl bg-[var(--bg-surface-hover)] border border-[var(--border-subtle)] py-2 text-xs font-bold text-[var(--text-primary)] hover:border-[var(--color-primary)]/40 transition cursor-pointer"
                 >
                   Done
                 </motion.button>

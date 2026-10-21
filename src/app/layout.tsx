@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Web3Provider } from "@/context/Web3Context";
+import { ThemeProvider } from "@/context/ThemeContext";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
@@ -57,13 +58,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark antialiased`}>
-      <body className="min-h-screen bg-[var(--bg-canvas)] text-[var(--text-primary)] flex flex-col font-sans selection:bg-[#d4ff3f]/25 selection:text-[#d4ff3f]">
-        <Web3Provider>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </Web3Provider>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark antialiased`} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('onchaingm_theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}}catch(e){}})()`,
+          }}
+        />
+      </head>
+      <body className="min-h-screen bg-[var(--bg-canvas)] text-[var(--text-primary)] flex flex-col font-sans selection:bg-[#d4ff3f]/25 selection:text-[#d4ff3f] transition-colors duration-200">
+        <ThemeProvider>
+          <Web3Provider>
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </Web3Provider>
+        </ThemeProvider>
       </body>
     </html>
   );

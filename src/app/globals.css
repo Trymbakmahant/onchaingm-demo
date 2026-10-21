@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
-:root {
-  /* 1. Backgrounds & Surfaces */
+:root,
+html.dark {
+  /* 1. Backgrounds & Surfaces (Neon Obsidian Dark) */
   --bg-canvas: #0b0b0b;        /* Main page background */
   --bg-surface: #141414;       /* Cards, sidebars, modals */
   --bg-surface-hover: #1f1f1f; /* Card hover state */
@@ -46,6 +47,56 @@
   /* App defaults */
   --background: var(--bg-canvas);
   --foreground: var(--text-primary);
+  color-scheme: dark;
+}
+
+html.light {
+  /* 1. Backgrounds & Surfaces (Apple Clean Light) */
+  --bg-canvas: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #f1f5f9;
+
+  /* 2. Brand & Accents */
+  --color-primary: #059669;
+  --color-on-primary: #ffffff;
+  
+  --color-secondary: #e11d48;
+  --color-on-secondary: #ffffff;
+
+  /* 3. Typography */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+
+  /* 4. Borders & Focus */
+  --border-subtle: #e2e8f0;
+  --border-focus: #059669;
+
+  /* 5. Status / Semantic Colors */
+  --status-success: #059669;
+  --status-warning: #d97706;
+  --status-error: #dc2626;
+
+  /* 6. OnChainGM tokens */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --border: #e2e8f0;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --primary: #059669;
+  --primary-foreground: #ffffff;
+  --destructive: #dc2626;
+  --success: #059669;
+  --ring: #059669;
+
+  /* App defaults */
+  --background: var(--bg-canvas);
+  --foreground: var(--text-primary);
+  color-scheme: light;
 }
 
 @theme inline {
@@ -94,6 +145,12 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #333333;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
 /* Pulsing Dual Logo Halo Ring Keyframes */

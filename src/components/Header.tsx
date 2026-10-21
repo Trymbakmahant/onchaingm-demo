@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWeb3 } from "@/context/Web3Context";
+import { useTheme } from "@/context/ThemeContext";
 import { WalletModal } from "./WalletModal";
 import { NetworkSelectorModal } from "./NetworkSelectorModal";
 import { hapticEngine } from "@/lib/appleHaptics";
@@ -39,6 +40,7 @@ const NAV_LINKS = [
 export function Header() {
   const pathname = usePathname();
   const { wallet, disconnectWallet, selectedNetwork, streak } = useWeb3();
+  const { theme, toggleTheme } = useTheme();
   const [isWalletOpen, setIsWalletOpen] = useState(false);
   const [isNetworkOpen, setIsNetworkOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
@@ -148,17 +150,29 @@ export function Header() {
               <ChevronDown className="h-3 w-3 text-[var(--text-muted)]" />
             </button>
 
-            {/* Theme Toggle Pill (Dark) */}
-            <div className="hidden xl:flex items-center">
+            {/* Theme Toggle Button */}
+            <div className="flex items-center">
               <button
                 type="button"
-                onClick={() => hapticEngine.play("click")}
-                className="flex items-center gap-1.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-2.5 py-1.5 text-xs font-semibold text-[var(--text-secondary)] hover:text-white transition cursor-pointer"
-                aria-label="Theme: Dark"
-                title="Theme: Dark"
+                onClick={() => {
+                  hapticEngine.play("toggle");
+                  toggleTheme();
+                }}
+                className="flex items-center gap-1.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-2.5 py-1.5 text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--color-primary)]/50 transition cursor-pointer select-none"
+                aria-label={`Theme: ${theme === "dark" ? "Dark" : "Light"}`}
+                title={`Switch to ${theme === "dark" ? "Light" : "Dark"} Mode`}
               >
-                <Moon className="h-3.5 w-3.5 text-[var(--color-primary)]" />
-                <span>Dark</span>
+                {theme === "dark" ? (
+                  <>
+                    <Moon className="h-3.5 w-3.5 text-[var(--color-primary)]" />
+                    <span className="hidden sm:inline">Dark</span>
+                  </>
+                ) : (
+                  <>
+                    <Sun className="h-3.5 w-3.5 text-[var(--color-primary)]" />
+                    <span className="hidden sm:inline">Light</span>
+                  </>
+                )}
               </button>
             </div>
 
@@ -293,6 +307,31 @@ export function Header() {
                 </Link>
               );
             })}
+
+            {/* Mobile Theme Switcher */}
+            <div className="pt-2.5 mt-2 border-t border-[var(--border-subtle)] flex items-center justify-between">
+              <span className="text-xs text-[var(--text-secondary)] font-medium">Appearance</span>
+              <button
+                type="button"
+                onClick={() => {
+                  hapticEngine.play("toggle");
+                  toggleTheme();
+                }}
+                className="flex items-center gap-1.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-3 py-1.5 text-xs font-semibold text-[var(--text-primary)] hover:border-[var(--color-primary)] transition cursor-pointer"
+              >
+                {theme === "dark" ? (
+                  <>
+                    <Moon className="h-3.5 w-3.5 text-[var(--color-primary)]" />
+                    <span>Dark Mode</span>
+                  </>
+                ) : (
+                  <>
+                    <Sun className="h-3.5 w-3.5 text-[var(--color-primary)]" />
+                    <span>Light Mode</span>
+                  </>
+                )}
+              </button>
+            </div>
           </div>
         )}
       </header>
