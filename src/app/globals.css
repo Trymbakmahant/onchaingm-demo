@@ -60,47 +60,47 @@ html.dark {
 }
 
 html.light {
-  /* 1. Backgrounds & Surfaces (Apple Clean Light) */
-  --bg-canvas: #f8fafc;
-  --bg-surface: #ffffff;
-  --bg-surface-hover: #f1f5f9;
+  /* 1. Backgrounds & Surfaces (Inverted from Jet Black #0b0b0b) */
+  --bg-canvas: #fafaff;        /* Clean, ultra-light cool white base */
+  --bg-surface: #ffffff;       /* Pure white for Cards, sidebars, modals */
+  --bg-surface-hover: #f1f1f6; /* Soft cool-gray hover state */
 
-  /* 2. Brand & Accents */
-  --color-primary: #059669;
-  --color-on-primary: #ffffff;
+  /* 2. Brand & Accents (Scientific Color Adjustments) */
+  --color-primary: #a7e000;       /* Chartreuse: Shifted to a highly visible mid-level Chartreuse-Lime */
+  --color-on-primary: #122100;    /* Deep Forest Black: Massive contrast on top of primary */
   
-  --color-secondary: #e11d48;
-  --color-on-secondary: #ffffff;
+  --color-secondary: #e60087;     /* Hot Pink: Deepened & richer for crucial visibility */
+  --color-on-secondary: #ffffff;  /* Crispy contrast over deep pink */
 
-  /* 3. Typography */
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  /* 3. Typography (Perfect WCAG Accessibility) */
+  --text-primary: #0a0a0c;     /* Midnight Dark: Softened jet black for readability */
+  --text-secondary: #585866;   /* Cool Gray: Secondary titles, descriptions */
+  --text-muted: #8e8e9c;       /* Muted ash: Placeholders, timestamps, borders */
 
   /* 4. Borders & Focus */
-  --border-subtle: #e2e8f0;
-  --border-focus: #059669;
+  --border-subtle: #eaeaea;    /* Light split-off cards */
+  --border-focus: #a7e000;     /* Border focus on light mode input clicks */
 
-  /* 5. Status / Semantic Colors */
-  --status-success: #059669;
-  --status-warning: #d97706;
-  --status-error: #dc2626;
+  /* 5. Status / Semantic Colors (Enhanced for light backdrop) */
+  --status-success: #008f51;
+  --status-warning: #c27d00;
+  --status-error: #cc0a33;
 
   /* 6. OnChainGM tokens */
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
-  --border: #e2e8f0;
+  --border: #eaeaea;
   --card: #ffffff;
-  --card-foreground: #0f172a;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --primary: #059669;
-  --primary-foreground: #ffffff;
-  --destructive: #dc2626;
-  --success: #059669;
-  --ring: #059669;
+  --card-foreground: #0a0a0c;
+  --muted: #f1f1f6;
+  --muted-foreground: #585866;
+  --primary: #a7e000;
+  --primary-foreground: #122100;
+  --destructive: #cc0a33;
+  --success: #008f51;
+  --ring: #a7e000;
 
   /* App defaults */
   --background: var(--bg-canvas);
@@ -260,6 +260,16 @@ html.light ::-webkit-scrollbar-thumb:hover {
   position: relative;
   background: radial-gradient(circle at 50% 0%, rgba(212, 255, 63, 0.035) 0%, transparent 60%),
               radial-gradient(circle at 100% 50%, rgba(255, 45, 171, 0.025) 0%, transparent 50%),
+              var(--bg-canvas);
+}
+
+html.light .lb-promo {
+  background: linear-gradient(90deg, rgba(167, 224, 0, 0.08) 0%, rgba(230, 0, 135, 0.05) 50%, rgba(167, 224, 0, 0.08) 100%), #ffffff;
+}
+
+html.light .home-page-atmosphere {
+  background: radial-gradient(circle at 50% 0%, rgba(167, 224, 0, 0.06) 0%, transparent 60%),
+              radial-gradient(circle at 100% 50%, rgba(230, 0, 135, 0.04) 0%, transparent 50%),
               var(--bg-canvas);
 }
 

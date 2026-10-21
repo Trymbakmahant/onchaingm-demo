@@ -42,8 +42,8 @@ export function ThemeShockwave({ event, onComplete }: ThemeShockwaveProps) {
   const diameter = Math.ceil(maxRadius * 2.2);
 
   const isGoingDark = toTheme === "dark";
-  const primaryGlow = isGoingDark ? "#d4ff3f" : "#059669";
-  const secondaryGlow = isGoingDark ? "#ff2dab" : "#3b82f6";
+  const primaryGlow = isGoingDark ? "#d4ff3f" : "#a7e000";
+  const secondaryGlow = isGoingDark ? "#ff2dab" : "#e60087";
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[999999] overflow-hidden">
