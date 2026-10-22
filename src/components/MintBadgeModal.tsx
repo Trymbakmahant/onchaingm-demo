@@ -69,7 +69,7 @@ export function MintBadgeModal({
           <button
             onClick={handleClose}
             disabled={isMinting}
-            className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-20 rounded-full p-1.5 text-[var(--text-muted)] hover:bg-[var(--bg-surface-hover)] hover:text-white transition disabled:opacity-40"
+            className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-20 rounded-full p-1.5 text-[var(--text-muted)] hover:bg-[var(--bg-surface-hover)] hover:text-[var(--text-primary)] transition disabled:opacity-40"
           >
             <X className="h-4 w-4 sm:h-5 sm:w-5" />
           </button>
@@ -122,7 +122,7 @@ export function MintBadgeModal({
                 </div>
                 <div className="flex justify-between items-center text-[var(--text-muted)]">
                   <span>Network:</span>
-                  <span className="text-white font-medium">{badge.networkName}</span>
+                  <span className="text-[var(--text-primary)] font-medium">{badge.networkName}</span>
                 </div>
               </div>
 
@@ -210,7 +210,7 @@ export function MintBadgeModal({
                     <span className="text-[var(--text-muted)] text-[11px]">Contract:</span>
                     <button
                       onClick={handleCopy}
-                      className="flex items-center gap-1 text-[11px] font-mono text-[var(--text-secondary)] hover:text-white transition"
+                      className="flex items-center gap-1 text-[11px] font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition"
                     >
                       <span>
                         {badge.contractAddress.slice(0, 6)}...{badge.contractAddress.slice(-4)}

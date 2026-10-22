@@ -97,7 +97,7 @@ export function AppleSegmentedFilter({
                   layout
                   className={`relative z-10 rounded-full px-1.5 sm:px-2 py-0.2 sm:py-0.5 text-[9px] sm:text-[10px] font-extrabold transition-colors ${
                     isActive
-                      ? "bg-[#0b0b0b]/80 text-[#d4ff3f] shadow-inner"
+                      ? "bg-black/20 text-[var(--color-on-primary)] shadow-inner"
                       : "bg-[var(--bg-surface-hover)] text-[var(--text-muted)]"
                   }`}
                 >
@@ -147,7 +147,7 @@ export function AppleSegmentedFilter({
               title="Grid View"
               className={`p-1.5 rounded-lg transition-colors ${
                 viewMode === "grid"
-                  ? "bg-[var(--color-primary)] text-black shadow-sm"
+                  ? "bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm"
                   : "text-[var(--text-muted)] hover:text-[var(--text-primary)]"
               }`}
             >
@@ -158,7 +158,7 @@ export function AppleSegmentedFilter({
               title="List View"
               className={`p-1.5 rounded-lg transition-colors ${
                 viewMode === "list"
-                  ? "bg-[var(--color-primary)] text-black shadow-sm"
+                  ? "bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm"
                   : "text-[var(--text-muted)] hover:text-[var(--text-primary)]"
               }`}
             >

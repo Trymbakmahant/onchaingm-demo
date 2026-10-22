@@ -180,7 +180,7 @@ export default function LeaderboardPage() {
                     setTimeFilter(t);
                   }}
                   className={`relative rounded-lg py-1.5 px-2 text-center text-xs font-bold uppercase transition select-none cursor-pointer ${
-                    isActive ? "text-[var(--color-on-primary)]" : "text-[var(--text-secondary)] hover:text-white"
+                    isActive ? "text-[var(--color-on-primary)]" : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                   }`}
                 >
                   {isActive && (

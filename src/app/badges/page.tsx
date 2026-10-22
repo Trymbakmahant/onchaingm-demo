@@ -138,7 +138,7 @@ export default function BadgesPage() {
             <div className="text-[9px] sm:text-[10px] text-[var(--text-muted)] uppercase tracking-wider font-semibold">
               Live Chains
             </div>
-            <div className="text-xs sm:text-base font-extrabold text-white">
+            <div className="text-xs sm:text-base font-extrabold text-[var(--text-primary)]">
               {counts.mainnet} Mainnets
             </div>
           </div>

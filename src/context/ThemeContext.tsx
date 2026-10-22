@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { ThemeShockwave, ShockwaveEvent } from "@/components/ThemeShockwave";
+import { flushSync } from "react-dom";
 
 export type Theme = "dark" | "light";
 
@@ -19,7 +19,6 @@ const ThemeContext = createContext<ThemeContextType>({
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("dark");
-  const [shockwaveEvent, setShockwaveEvent] = useState<ShockwaveEvent | null>(null);
 
   useEffect(() => {
     try {
@@ -80,14 +79,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       }
     }
 
-    // Trigger glowing shockwave ring animation
-    setShockwaveEvent({
-      x,
-      y,
-      toTheme: nextTheme,
-      id: Date.now(),
-    });
-
     // Check if View Transitions API is supported
     const doc = typeof document !== "undefined" ? (document as any) : null;
     const isReducedMotion =
@@ -101,7 +92,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       );
 
       const transition = doc.startViewTransition(() => {
-        applyThemeClasses(nextTheme);
+        flushSync(() => {
+          applyThemeClasses(nextTheme);
+        });
       });
 
       transition.ready
@@ -110,11 +103,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
             {
               clipPath: [
                 `circle(0px at ${x}px ${y}px)`,
-                `circle(${Math.ceil(maxRadius * 1.15)}px at ${x}px ${y}px)`,
+                `circle(${Math.ceil(maxRadius * 1.05)}px at ${x}px ${y}px)`,
               ],
             },
             {
-              duration: 1250,
+              duration: 450,
               easing: "cubic-bezier(0.22, 1, 0.36, 1)",
               pseudoElement: "::view-transition-new(root)",
             }
@@ -132,10 +125,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
       {children}
-      <ThemeShockwave
-        event={shockwaveEvent}
-        onComplete={() => setShockwaveEvent(null)}
-      />
     </ThemeContext.Provider>
   );
 }

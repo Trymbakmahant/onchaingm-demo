@@ -32,7 +32,7 @@ export function StatsGrid() {
       value: "< $0.001",
       description: "Optimized L2/L3 execution",
       icon: Zap,
-      color: "bg-[#d4ff3f]/10 text-[#d4ff3f] border-[#d4ff3f]/30",
+      color: "bg-[var(--color-primary)]/10 text-[var(--color-primary)] border-[var(--color-primary)]/30",
     },
   ];
 

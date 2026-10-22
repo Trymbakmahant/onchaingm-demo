@@ -172,7 +172,7 @@ export function TokenSelectorModal({
                 className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold border transition ${
                   selectedToken.symbol === t.symbol
                     ? "bg-[var(--color-primary)]/15 border-[var(--color-primary)]/40 text-[var(--color-primary)]"
-                    : "bg-[var(--bg-canvas)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-white"
+                    : "bg-[var(--bg-canvas)] border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                 }`}
               >
                 <img src={t.icon} alt={t.symbol} className="h-3.5 w-3.5 rounded-full object-cover" />

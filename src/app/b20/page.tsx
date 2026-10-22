@@ -60,10 +60,10 @@ const EMBLEM_THEMES: Record<
   },
   obsidian: {
     name: "Midnight",
-    gradient: "from-white/20 via-neutral-700/20 to-[#0b0b0b]",
-    border: "border-white/30",
-    text: "text-white",
-    accent: "#ffffff",
+    gradient: "from-white/20 via-neutral-700/20 to-[var(--bg-canvas)]",
+    border: "border-[var(--border-subtle)]",
+    text: "text-[var(--text-primary)]",
+    accent: "var(--text-primary)",
   },
 };
 
@@ -160,21 +160,21 @@ export default function B20Page() {
       <div className="relative mx-auto max-w-6xl px-3 sm:px-6 z-10">
         {/* Compact Single-Screen Header */}
         <div className="text-center max-w-2xl mx-auto mb-2 sm:mb-3">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-0.5 text-[11px] font-semibold text-neutral-300 mb-1 shadow-inner backdrop-blur-xl">
-            <span className="flex h-1.5 w-1.5 rounded-full bg-[#d4ff3f] shadow-[0_0_6px_#d4ff3f]" />
-            <span className="text-white">Base L2 Precompile</span>
-            <span className="text-neutral-500">•</span>
-            <span className="text-[#d4ff3f]">Zero Gas Overhead</span>
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-2.5 py-0.5 text-[11px] font-semibold text-[var(--text-secondary)] mb-1 shadow-sm backdrop-blur-xl">
+            <span className="flex h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] shadow-[0_0_6px_var(--color-primary)]" />
+            <span className="text-[var(--text-primary)]">Base L2 Precompile</span>
+            <span className="text-[var(--text-muted)]">•</span>
+            <span className="text-[var(--color-primary)]">Zero Gas Overhead</span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-[var(--text-primary)] leading-tight">
             Launch{" "}
-            <span className="bg-gradient-to-r from-[#d4ff3f] via-white to-[#ff2dab] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[var(--color-primary)] via-[var(--text-primary)] to-[#ff2dab] bg-clip-text text-transparent">
               B20 Assets on Base
             </span>
           </h1>
 
-          <p className="mt-0.5 text-[11px] sm:text-xs text-neutral-400 max-w-xl mx-auto line-clamp-1 sm:line-clamp-none">
+          <p className="mt-0.5 text-[11px] sm:text-xs text-[var(--text-secondary)] max-w-xl mx-auto line-clamp-1 sm:line-clamp-none">
             Deploy auto-verified ERC-20 assets through the official Base factory with sub-penny protocol fees.
           </p>
         </div>
@@ -188,8 +188,8 @@ export default function B20Page() {
             }}
             className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer ${
               mobileTab === "form"
-                ? "bg-[var(--color-primary)] text-black shadow-sm"
-                : "text-[var(--text-secondary)] hover:text-white"
+                ? "bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm"
+                : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
             }`}
           >
             <Sliders className="h-3 w-3" />
@@ -202,8 +202,8 @@ export default function B20Page() {
             }}
             className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer ${
               mobileTab === "preview"
-                ? "bg-[var(--color-primary)] text-black shadow-sm"
-                : "text-[var(--text-secondary)] hover:text-white"
+                ? "bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm"
+                : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
             }`}
           >
             <Eye className="h-3 w-3" />

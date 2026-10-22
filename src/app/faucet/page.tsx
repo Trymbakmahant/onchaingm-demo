@@ -120,7 +120,7 @@ export default function FaucetPage() {
             <div className="text-[9px] sm:text-[10px] text-[var(--text-muted)] uppercase tracking-wider font-semibold">
               Fast-Lane
             </div>
-            <div className="text-xs sm:text-base font-extrabold text-white">
+            <div className="text-xs sm:text-base font-extrabold text-[var(--text-primary)]">
               Soulbound ✓
             </div>
           </div>
@@ -188,13 +188,13 @@ export default function FaucetPage() {
                 }}
                 className={`flex items-center justify-center gap-1.5 rounded-lg px-2.5 sm:px-3 py-1.5 text-xs font-bold transition select-none cursor-pointer ${
                   activeFilter === tab.id
-                    ? "bg-[var(--color-primary)] text-black shadow-sm"
-                    : "text-[var(--text-secondary)] hover:text-white"
+                    ? "bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm"
+                    : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                 }`}
               >
                 <span>{tab.label}</span>
                 <span className={`text-[10px] rounded-full px-1.5 py-0.2 ${
-                  activeFilter === tab.id ? "bg-black/20 text-black font-extrabold" : "bg-[var(--bg-surface-hover)] text-[var(--text-muted)]"
+                  activeFilter === tab.id ? "bg-black/20 text-[var(--color-on-primary)] font-extrabold" : "bg-[var(--bg-surface-hover)] text-[var(--text-muted)]"
                 }`}>
                   {tab.count}
                 </span>
@@ -215,7 +215,7 @@ export default function FaucetPage() {
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery("")}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-white transition p-0.5"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition p-0.5"
               >
                 <X className="h-3 w-3" />
               </button>
@@ -380,7 +380,7 @@ export default function FaucetPage() {
               <div className="mt-4 p-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-canvas)] text-left text-xs space-y-1.5">
                 <div className="flex justify-between text-[var(--text-muted)] text-[11px]">
                   <span>Network:</span>
-                  <span className="text-white font-medium">{claimedChain.name}</span>
+                  <span className="text-[var(--text-primary)] font-medium">{claimedChain.name}</span>
                 </div>
                 <div className="flex justify-between text-[var(--text-muted)] text-[11px]">
                   <span>Status:</span>
@@ -393,7 +393,7 @@ export default function FaucetPage() {
                   href={claimedChain.faucetUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 py-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-canvas)] text-xs font-semibold text-[var(--text-secondary)] hover:text-white transition flex items-center justify-center gap-1"
+                  className="flex-1 py-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-canvas)] text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition flex items-center justify-center gap-1"
                 >
                   <span>Portal</span>
                   <ExternalLink className="h-3 w-3" />

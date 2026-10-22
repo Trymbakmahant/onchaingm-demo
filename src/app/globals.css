@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
   font-family: 'Neo Atomed';
   font-style: normal;
@@ -314,5 +316,13 @@ html.light .home-page-atmosphere {
 }
 
 ::view-transition-new(root) {
-  z-index: 99999;
+  z-index: 9999;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
 }

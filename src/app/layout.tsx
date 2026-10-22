@@ -73,7 +73,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen bg-[var(--bg-canvas)] text-[var(--text-primary)] flex flex-col font-sans selection:bg-[#d4ff3f]/25 selection:text-[#d4ff3f] transition-colors duration-200">
+      <body className="min-h-screen bg-[var(--bg-canvas)] text-[var(--text-primary)] flex flex-col font-sans selection:bg-[#d4ff3f]/25 selection:text-[#d4ff3f]">
         <ThemeProvider>
           <Web3Provider>
             <Header />
